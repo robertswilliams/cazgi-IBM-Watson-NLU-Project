@@ -3,20 +3,22 @@ import './bootstrap.min.css';
 
 class EmotionTable extends React.Component {
     render() {
-      return (  
+      let emotions = this.props.emotions;
+      let key_words = Object.keys(emotions);
+      return (
         <div>
-          {/*You can remove this line and the line below. */}
-          {JSON.stringify(this.props.emotions)}
           <table className="table table-bordered">
             <tbody>
             {
-                //Write code to use the .map method that you worked on in the Hands-on React lab to extract the emotions
-            }
+                key_words.map(function(emotion, index) {
+                    return <tr key={emotion}><td>{emotion}</td><td>{emotions[emotion]}</td></tr>;
+                })
+           }
             </tbody>
           </table>
           </div>
           );
         }
-    
+
 }
 export default EmotionTable;
